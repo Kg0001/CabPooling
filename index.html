@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIT Cab Pooling Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>VIT Cab Pooling Board</h1>
+        <p>Share rides with fellow VITians</p>
+    </header>
+
+    <canvas id="divider-canvas" width="100%" height="6"></canvas>
+
+    <div class="container">
+
+        <!-- Post a Ride Section -->
+        <section class="section" id="post-section">
+            <h2>Post a Ride</h2>
+            <div class="form-box">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                    <span class="error-msg" id="error-name"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" placeholder="Enter your phone number">
+                    <span class="error-msg" id="error-phone"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Date of Travel</label>
+                        <input type="date" id="date">
+                        <span class="error-msg" id="error-date"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Departure Time</label>
+                        <input type="time" id="time">
+                        <span class="error-msg" id="error-time"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="from">From</label>
+                        <select id="from">
+                            <option value="">-- Select --</option>
+                            <option value="VIT Vellore Campus">VIT Vellore Campus</option>
+                            <option value="Chennai Airport">Chennai Airport</option>
+                            <option value="Bangalore Airport">Bangalore Airport</option>
+                            <option value="Chennai Central Railway Station">Chennai Central Railway Station</option>
+                            <option value="Bangalore City Railway Station">Bangalore City Railway Station</option>
+                        </select>
+                        <span class="error-msg" id="error-from"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="to">To</label>
+                        <select id="to">
+                            <option value="">-- Select --</option>
+                            <option value="VIT Vellore Campus">VIT Vellore Campus</option>
+                            <option value="Chennai Airport">Chennai Airport</option>
+                            <option value="Bangalore Airport">Bangalore Airport</option>
+                            <option value="Chennai Central Railway Station">Chennai Central Railway Station</option>
+                            <option value="Bangalore City Railway Station">Bangalore City Railway Station</option>
+                        </select>
+                        <span class="error-msg" id="error-to"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="seats">Available Seats</label>
+                    <input type="number" id="seats" min="1" max="5" placeholder="1 to 5">
+                    <span class="error-msg" id="error-seats"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price for Cab (₹)</label>
+                    <input type="number" id="price" min="0" placeholder="Enter amount in rupees">
+                    <span class="error-msg" id="error-price"></span>
+                </div>
+
+                <button onclick="postRide()" id="post-btn">Post Ride</button>
+            </div>
+        </section>
+
+        <!-- Available Rides Section -->
+        <section class="section" id="rides-section">
+            <h2>Available Rides</h2>
+
+            <div class="filter-box">
+                <label for="filter-date">Filter by Date:</label>
+                <input type="date" id="filter-date" onchange="filterRides()">
+                <button onclick="clearFilter()" id="clear-btn">Clear Filter</button>
+            </div>
+
+            <div id="rides-container">
+                <!-- ride cards go here -->
+            </div>
+
+            <p id="no-rides-msg" style="display:none;">No rides available. Be the first to post one!</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Made for VIT Vellore Students &nbsp;|&nbsp; Web Programming Project &nbsp;|&nbsp; Kaustav Goel (24BCE0426)</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
